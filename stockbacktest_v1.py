@@ -19,3 +19,7 @@ for ticker in d:
 # earliest date from which all ticker items can be tested
 earliest_date = min(d[max(datelist)].index)
 print(f"Simulation can begin from: {earliest_date}")
+
+# trim dataframes to simulate-able timeframes
+for ticker in d:
+    d[ticker] = d[ticker][d[ticker].index >= earliest_date]
